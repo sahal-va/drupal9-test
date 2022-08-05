@@ -1,0 +1,20 @@
+{#
+/**
+ * @file
+ * Default theme implementation for a current timestamp block.
+ *
+ * Available variables:
+ * - header: A markup to print as a block header.
+ * - content: The content of the current timestamp block.
+ * - footer: A markup to print as a footer of the block.
+ */
+#}
+{% if header %}
+  <div>{{ header }}</div>
+{% endif %}
+{% if content %}
+  <div>{{ content }}</div>
+{% endif %}
+{% if footer %}
+  <div>{{ footer }}</div>
+{% endif %}
