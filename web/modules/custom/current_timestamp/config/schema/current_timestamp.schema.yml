@@ -1,0 +1,14 @@
+# Schema for the configuration files of the Current Timestamp module.
+current_timestamp.settings:
+  type: config_object
+  label: 'Current Timestamp settings'
+  mapping:
+    country:
+      type: string
+      label: 'Country'
+    city:
+      type: string
+      label: 'City'
+    timezone:
+      type: string
+      label: 'Time zone'

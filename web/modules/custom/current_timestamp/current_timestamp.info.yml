@@ -1,0 +1,6 @@
+name: Current Timestamp
+type: module
+description: Provides additional block with current timestamp for the site.
+package: Custom
+core_version_requirement: ^9 || ^10
+configure: current_timestamp.settings_form
