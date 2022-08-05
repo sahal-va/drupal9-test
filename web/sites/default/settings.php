@@ -730,6 +730,11 @@ $settings['container_yamls'][] = $app_root . '/' . $site_path . '/services.yml';
  * @see https://www.drupal.org/docs/installing-drupal/trusted-host-settings
  */
 
+$settings['trusted_host_patterns'] = [
+  '^www\.example\.com$',
+  'drupal9.lndo.site',
+];
+
 /**
  * The default list of directories that will be ignored by Drupal's file API.
  *
