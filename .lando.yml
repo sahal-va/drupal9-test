@@ -1,0 +1,54 @@
+name: drupal9-test
+recipe: drupal9
+config:
+  webroot: web
+  config:
+    php: .lando.php.ini
+proxy:
+  appserver:
+    - drupal9.lndo.site
+services:
+  appserver:
+    type: 'php:8.0'
+    xdebug: true
+    overrides:
+      environment:
+        LANDO_HOST_IP: host.docker.internal
+        XDEBUG_CONFIG: remote_enable=1 remote_host=host.docker.internal
+    build:
+      - cd $LANDO_MOUNT && composer require drupal/coder
+      - >-
+        /app/vendor/bin/phpcs --config-set installed_paths
+        /app/vendor/drupal/coder/coder_sniffer
+tooling:
+  composer:
+    service: appserver
+    description: Run composer commands
+    cmd: composer --ansi
+  php:
+    service: appserver
+  mysql:
+    user: root
+    service: database
+    description: Drop into a MySQL shell
+  xdebug-on:
+    service: appserver
+    description: Enable xdebug for apache.
+    cmd: docker-php-ext-enable xdebug && /etc/init.d/apache2 reload
+    user: root
+  xdebug-off:
+    service: appserver
+    description: Disable xdebug for apache.
+    cmd: >-
+      rm /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini &&
+      /etc/init.d/apache2 reload
+    user: root
+  drupal:
+    service: appserver
+    cmd: php /app/vendor/bin/drupal
+  phpcs:
+    service: appserver
+    cmd: '/app/vendor/bin/phpcs --standard=Drupal,DrupalPractice'
+  phpcbf:
+    service: appserver
+    cmd: '/app/vendor/bin/phpcbf --standard=Drupal,DrupalPractice'
