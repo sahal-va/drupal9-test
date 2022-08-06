@@ -1,0 +1,34 @@
+{#
+/**
+ * @file
+ * Default theme implementation for a current timestamp block.
+ *
+ * Available variables:
+ * - header: A markup to print as a block header.
+ * - content: The content of the current timestamp block.
+ * - footer: A markup to print as a footer of the block.
+ */
+#}
+
+{# Print Header #}
+{% if header %}
+  <div>{{ header }}</div>
+{% endif %}
+
+{# Print Content including country,city and current time #}
+{% if content %}
+  {% if content.country %}
+    <div>Country: {{ content.country }}</div>
+  {% endif %}
+  {% if content.city %}
+    <div>City: {{ content.city }}</div>
+  {% endif %}
+  {% if content.time %}
+    <div>Current time: {{ content.time }}</div>
+  {% endif %}
+{% endif %}
+
+{# Print Footer content if any #}
+{% if footer %}
+  <div>{{ footer }}</div>
+{% endif %}

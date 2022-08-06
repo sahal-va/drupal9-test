@@ -1,0 +1,21 @@
+<?php
+
+/**
+ * @file
+ * Primary module hooks for Current Timestamp module.
+ */
+
+/**
+ * Implements hook_theme().
+ */
+function current_timestamp_theme() {
+  return [
+    'current_timestamp_block' => [
+      'variables' => [
+        'header' => NULL,
+        'content' => [],
+        'footer' => NULL,
+      ],
+    ],
+  ];
+}

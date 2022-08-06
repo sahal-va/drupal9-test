@@ -1,0 +1,20 @@
+uuid: 860bedd2-a029-4815-8f8b-003ddae0095b
+langcode: en
+status: true
+dependencies:
+  module:
+    - current_timestamp
+  theme:
+    - olivero
+id: currenttime
+theme: olivero
+region: hero
+weight: 0
+provider: null
+plugin: current_timestamp_current_time
+settings:
+  id: current_timestamp_current_time
+  label: 'Current Time'
+  label_display: '0'
+  provider: current_timestamp
+visibility: {  }

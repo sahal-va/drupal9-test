@@ -1,0 +1,6 @@
+current_timestamp.settings_form:
+  title: 'Current Timestamp Settings'
+  description: 'Configure Current Timestamp.'
+  parent: system.admin_config_regional
+  route_name: current_timestamp.settings_form
+  weight: 10
