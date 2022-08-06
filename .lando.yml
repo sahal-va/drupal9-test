@@ -20,6 +20,15 @@ services:
       - >-
         /app/vendor/bin/phpcs --config-set installed_paths
         /app/vendor/drupal/coder/coder_sniffer
+  database:
+    run_as_root:
+      - |
+        read -p "Do you want to import database from dummy backup from db-backups/drupal9.2022-08-06-1659788209.sql.gz? (y/n)?" choice
+        if [ "$choice" = "y" ]; then
+          echo "Importing database from dummy backup";
+          /helpers/sql-import.sh /app/db-backups/drupal9.2022-08-06-1659788209.sql.gz
+        fi
+
 tooling:
   composer:
     service: appserver
