@@ -9,12 +9,26 @@
  * - footer: A markup to print as a footer of the block.
  */
 #}
+
+{# Print Header #}
 {% if header %}
   <div>{{ header }}</div>
 {% endif %}
+
+{# Print Content including country,city and current time #}
 {% if content %}
-  <div>{{ content }}</div>
+  {% if content.country %}
+    <div>Country: {{ content.country }}</div>
+  {% endif %}
+  {% if content.city %}
+    <div>City: {{ content.city }}</div>
+  {% endif %}
+  {% if content.time %}
+    <div>Current time: {{ content.time }}</div>
+  {% endif %}
 {% endif %}
+
+{# Print Footer content if any #}
 {% if footer %}
   <div>{{ footer }}</div>
 {% endif %}

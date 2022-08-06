@@ -1,0 +1,7 @@
+update_time:
+  version: 1.x
+  js:
+    js/update-time.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal.dialog.ajax

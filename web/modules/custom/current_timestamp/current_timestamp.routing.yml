@@ -5,3 +5,11 @@ current_timestamp.settings_form:
     _form: 'Drupal\current_timestamp\Form\SettingsForm'
   requirements:
     _permission: 'administer current_timestamp configuration'
+
+current_timestamp.get_time:
+  path: '/current-time'
+  defaults:
+    _title: 'Time'
+    _controller: '\Drupal\current_timestamp\Controller\CurrentTimestampController::getTime'
+  requirements:
+    _role: 'anonymous'
