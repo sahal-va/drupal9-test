@@ -28,7 +28,10 @@ services:
           echo "Importing database from dummy backup";
           /helpers/sql-import.sh /app/db-backups/drupal9.2022-08-06-1659788209.sql.gz
         fi
-
+  phpmyadmin:
+    type: phpmyadmin
+    hosts:
+      - database
 tooling:
   composer:
     service: appserver
